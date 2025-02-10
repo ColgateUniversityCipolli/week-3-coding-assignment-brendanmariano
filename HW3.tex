@@ -88,6 +88,7 @@ The numbers are listed below.
     57 & 58 & 62 & 65 & 69\\
     75 & 77 & 82 & 85 & 86\\
     87 & 91 & 93 & 94 & 95
+    \label{vals}
   \end{tabular}
 \end{center}
 Use the fact that the ``certain'' property is that these numbers are all supposed
@@ -103,8 +104,54 @@ to this \texttt{.Rnw} file.\\
 \begin{knitrout}\scriptsize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{# Copy your solution code here.}
+\hlcom{#Stores data frame values}
+\hldef{initial.vals} \hlkwb{=} \hlkwd{c}\hldef{(}\hlnum{6}\hldef{,} \hlnum{22}\hldef{,} \hlnum{38}\hldef{,} \hlnum{57}\hldef{,} \hlnum{75}\hldef{,} \hlnum{87}\hldef{,} \hlnum{10}\hldef{,} \hlnum{26}\hldef{,} \hlnum{39}\hldef{,} \hlnum{58}\hldef{,} \hlnum{77}\hldef{,} \hlnum{91}\hldef{,} \hlnum{14}\hldef{,} \hlnum{33}\hldef{,} \hlnum{46}\hldef{,} \hlnum{62}\hldef{,} \hlnum{82}\hldef{,} \hlnum{93}\hldef{,} \hlnum{15}\hldef{,} \hlnum{34}\hldef{,} \hlnum{51}\hldef{,} \hlnum{65}\hldef{,} \hlnum{85}\hldef{,} \hlnum{94}\hldef{,}
+                  \hlnum{21}\hldef{,} \hlnum{35}\hldef{,} \hlnum{55}\hldef{,} \hlnum{69}\hldef{,} \hlnum{86}\hldef{,} \hlnum{95}\hldef{)}
+\hldef{correct.vals} \hlkwb{=} \hlkwd{vector}\hldef{(}\hlkwc{mode} \hldef{=} \hlsng{"numeric"}\hldef{,} \hlkwc{length} \hldef{=} \hlnum{0}\hldef{)}
+\hlcom{#Vector of all prime numbers that can be factors of numbers}
+\hlcom{#less than 100}
+\hldef{prime.numbers} \hlkwb{=} \hlkwd{c}\hldef{(}\hlnum{2}\hldef{,} \hlnum{3}\hldef{,} \hlnum{5}\hldef{,} \hlnum{7}\hldef{,} \hlnum{11}\hldef{,} \hlnum{13}\hldef{,} \hlnum{17}\hldef{,} \hlnum{19}\hldef{,} \hlnum{23}\hldef{,} \hlnum{29}\hldef{,} \hlnum{31}\hldef{,} \hlnum{37}\hldef{,}
+\hlnum{41}\hldef{,} \hlnum{43}\hldef{,} \hlnum{47}\hldef{)}
+\hlcom{#Finds every possible product of prime numbers that is less than 100}
+\hlcom{#Iterates through first factors}
+\hlkwa{for}\hldef{(factor1} \hlkwa{in} \hldef{prime.numbers)}
+\hldef{\{}
+  \hlcom{#Stores product }
+  \hldef{product} \hlkwb{=} \hlnum{0}
+  \hlkwa{for}\hldef{(factor2} \hlkwa{in} \hldef{prime.numbers)}
+  \hldef{\{}
+    \hlkwa{if}\hldef{(factor1} \hlopt{!=} \hldef{factor2)}
+    \hldef{\{}
+      \hlcom{#Finds the potential product}
+      \hldef{product} \hlkwb{=} \hldef{factor1}\hlopt{*}\hldef{factor2}
+      \hlcom{#Conditions for the product to be valid}
+      \hlkwa{if}\hldef{(product}\hlopt{>} \hlnum{0} \hlopt{&&} \hldef{product} \hlopt{<} \hlnum{100}\hldef{)}
+      \hldef{\{}
+        \hldef{correct.vals} \hlkwb{=} \hlkwd{append}\hldef{(correct.vals, product)}
+      \hldef{\}}
+    \hldef{\}}
+  \hldef{\}}
+\hldef{\}}
+\hlcom{#Stores the incorrect number}
+\hldef{diff.num} \hlkwb{=} \hlkwd{setdiff}\hldef{(initial.vals, correct.vals)}
+\hlcom{#Stores the correct number}
+\hldef{correct.num} \hlkwb{=} \hlkwd{setdiff}\hldef{(correct.vals, initial.vals)}
+\hldef{answer} \hlkwb{=} \hlkwd{paste}\hldef{(}\hlsng{"Issue fixed: Blake inserted "}\hldef{, diff.num,} \hlsng{"instead of "}\hldef{, correct.num)}
+\hlkwd{print}\hldef{(answer)}
 \end{alltt}
+\begin{verbatim}
+## [1] "Issue fixed: Blake inserted  75 instead of  74"
+\end{verbatim}
+\begin{alltt}
+\hldef{justification} \hlkwb{=}
+\hldef{(}\hlsng{"Justification: My code found every possible product of unique prime numbers from 0 to 100. 75 was not included in that 
+ which means that it cannot be the product of two unique prime numbers. The only number that the intitial list was 
+ missing was 74 which means that Blake mistakenly replaced it with 75."}\hldef{)}
+\hlkwd{print}\hldef{(justification)}
+\end{alltt}
+\begin{verbatim}
+## [1] "Justification: My code found every possible product of unique prime numbers from 0 to 100. 75 was not included in that \n which means that it cannot be the product of two unique prime numbers. The only number that the intitial list was \n missing was 74 which means that Blake mistakenly replaced it with 75."
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 \end{enumerate}
