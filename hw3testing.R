@@ -27,7 +27,7 @@ for(factor1 in prime.numbers)
   }
 }
 #Stores the incorrect number
-(diff.num = setdiff(initial.vals, correct.vals))
+diff.num = setdiff(initial.vals, correct.vals)
 #Stores the correct number
-(correct.num = setdiff(correct.vals, initial.vals))
+correct.num = setdiff(correct.vals, initial.vals)
 
