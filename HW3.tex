@@ -122,7 +122,7 @@ to this \texttt{.Rnw} file.\\
     \hlkwa{if}\hldef{(factor1} \hlopt{!=} \hldef{factor2)}
     \hldef{\{}
       \hldef{product} \hlkwb{=} \hldef{factor1}\hlopt{*}\hldef{factor2}
-      \hlcom{#Conditions for the product to be valid}
+      \hlcom{#Determines whether the product is within accepted range}
       \hlkwa{if}\hldef{(product} \hlopt{%in%} \hldef{product.range)}
       \hldef{\{}
         \hldef{correct.vals} \hlkwb{=} \hlkwd{append}\hldef{(correct.vals, product)}
@@ -139,15 +139,15 @@ to this \texttt{.Rnw} file.\\
 ## [1] "Issue fixed: Blake inserted  75 instead of  74"
 \end{verbatim}
 \begin{alltt}
-\hldef{justification} \hlkwb{=} \hlkwd{paste}\hldef{(}\hlsng{"Justification: My code found every possible product from 0 to 100 of unique prime numbers. 75 was not"}\hldef{,} \hlsng{"included in that which means that it cannot be the product of two unique prime numbers(which makes sense"}\hldef{,} \hlsng{"because 25*3 = 75 and 25 is not prime). The only number that the intitial list was missing from the correctly"}\hldef{,} \hlsng{"calculated list was 74 which means that Blake mistakenly replaced it with 75."}\hldef{,} \hlkwc{sep} \hldef{=} \hlsng{"\textbackslash{}n"}\hldef{)}
+\hldef{justification} \hlkwb{=} \hlkwd{paste}\hldef{(}\hlsng{"Justification: My code found every possible product from 0 to 100 of unique prime numbers. 75 was not"}\hldef{,} \hlsng{"included in that which means that it cannot be the product of two unique prime numbers(this makes sense"}\hldef{,} \hlsng{"because 25*3 = 75 and 25 is not prime). The only number that the intitial list was missing from the correctly"}\hldef{,} \hlsng{"calculated list was 74 which means that Blake mistakenly replaced 74 with 75."}\hldef{,} \hlkwc{sep} \hldef{=} \hlsng{"\textbackslash{}n"}\hldef{)}
 \hlcom{#Used cat to make line breaks in string}
 \hlkwd{cat}\hldef{(justification)}
 \end{alltt}
 \begin{verbatim}
 ## Justification: My code found every possible product from 0 to 100 of unique prime numbers. 75 was not
-## included in that which means that it cannot be the product of two unique prime numbers(which makes sense
+## included in that which means that it cannot be the product of two unique prime numbers(this makes sense
 ## because 25*3 = 75 and 25 is not prime). The only number that the intitial list was missing from the correctly
-## calculated list was 74 which means that Blake mistakenly replaced it with 75.
+## calculated list was 74 which means that Blake mistakenly replaced 74 with 75.
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
